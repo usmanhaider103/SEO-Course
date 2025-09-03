@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pro Freelancer Courses - SEO Mastery</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2bd69c;
+            --secondary: #0f7a5c;
+            --accent: #ff6b35;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --success: #2bd69c;
+            --warning: #ffd166;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7ff;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            border-radius: 0 0 20px 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .logo span {
+            color: var(--warning);
+        }
+        
+        header h1 {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+        }
+        
+        header p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .contact-info {
+            background-color: var(--warning);
+            color: var(--dark);
+            padding: 10px;
+            border-radius: 10px;
+            margin-top: 15px;
+            display: inline-block;
+        }
+        
+        .section {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin: 30px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .section-title {
+            color: var(--primary);
+            text-align: center;
+            margin-bottom: 30px;
+            position: relative;
+            font-size: 2rem;
+        }
+        
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--accent);
+            margin: 10px auto;
+            border-radius: 2px;
+        }
+        
+        .intro-content {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 30px;
+        }
+        
+        .intro-text {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .intro-image {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+        }
+        
+        .intro-image img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+        }
+        
+        .tool-card {
+            background: var(--light);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .tool-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .tool-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .tool-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .tool-card:hover .tool-image img {
+            transform: scale(1.05);
+        }
+        
+        .tool-content {
+            padding: 20px;
+        }
+        
+        .tool-title {
+            color: var(--secondary);
+            margin-bottom: 10px;
+            font-size: 1.4rem;
+        }
+        
+        .tool-description {
+            color: #666;
+            margin-bottom: 15px;
+        }
+        
+        .tool-features {
+            list-style-type: none;
+        }
+        
+        .tool-features li {
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .tool-features li i {
+            color: var(--success);
+            margin-right: 10px;
+        }
+        
+        .form-container {
+            background: var(--light);
+            padding: 30px;
+            border-radius: 10px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--dark);
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+        
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: background 0.3s ease;
+        }
+        
+        .btn:hover {
+            background: var(--secondary);
+        }
+        
+        .chatgpt-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            align-items: center;
+        }
+        
+        .chatgpt-text {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .chatgpt-image {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+        }
+        
+        .chatgpt-image img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .steps {
+            list-style-type: none;
+            margin: 20px 0;
+        }
+        
+        .steps li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+        }
+        
+        .steps li i {
+            position: absolute;
+            left: 0;
+            top: 2px;
+            color: var(--accent);
+            font-size: 1.2rem;
+        }
+        
+        .video-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+        }
+        
+        .video-card {
+            background: var(--light);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .video-thumbnail {
+            height: 180px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .video-thumbnail iframe {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .video-info {
+            padding: 20px;
+        }
+        
+        .video-title {
+            color: var(--secondary);
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .video-duration {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        footer {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 50px;
+            border-radius: 20px 20px 0 0;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            gap: 30px;
+            margin-bottom: 20px;
+        }
+        
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .footer-section h3 {
+            color: var(--warning);
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+        
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .social-icons a {
+            color: white;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+        
+        .social-icons a:hover {
+            color: var(--accent);
+        }
+        
+        .copyright {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .intro-content, .chatgpt-content {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">Pro<span>Freelancer</span></div>
+            <h1>Search Engine Optimization Mastery Course</h1>
+            <p>Learn professional SEO skills and become a freelancer with our comprehensive course</p>
+            <div class="contact-info">
+                <p><i class="fas fa-phone"></i> Contact: 03065178817 | Course Writer: Usman Haider</p>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <section class="section" id="intro">
+            <h2 class="section-title">Introduction to SEO</h2>
+            <div class="intro-content">
+                <div class="intro-text">
+                    <p>Search Engine Optimization (SEO) is the art and science of getting pages to rank higher in search engines like Google. It involves optimizing websites to increase their visibility and drive organic traffic.</p>
+                    <p>In our comprehensive SEO course, you'll learn:</p>
+                    <ul class="steps">
+                        <li><i class="fas fa-check-circle"></i> Keyword research and analysis</li>
+                        <li><i class="fas fa-check-circle"></i> On-page optimization techniques</li>
+                        <li><i class="fas fa-check-circle"></i> Technical SEO fundamentals</li>
+                        <li><i class="fas fa-check-circle"></i> Link building strategies</li>
+                        <li><i class="fas fa-check-circle"></i> Content optimization</li>
+                        <li><i class="fas fa-check-circle"></i> Local SEO and international SEO</li>
+                        <li><i class="fas fa-check-circle"></i> SEO analytics and reporting</li>
+                    </ul>
+                </div>
+                <div class="intro-image">
+                    <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80" alt="SEO Introduction">
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="tools">
+            <h2 class="section-title">Essential SEO Tools</h2>
+            <div class="tools-grid">
+                <div class="tool-card">
+                    <div class="tool-image">
+                        <img src="images/s1.png" alt="Ahrefs">
+                    </div>
+                    <div class="tool-content">
+                        <h3 class="tool-title">Ahrefs</h3>
+                        <p class="tool-description">All-in-one SEO toolset for backlink analysis, keyword research, and competitor analysis.</p>
+                        <ul class="tool-features">
+                            <li><i class="fas fa-check"></i> Site Explorer for backlink analysis</li>
+                            <li><i class="fas fa-check"></i> Keywords Explorer for research</li>
+                            <li><i class="fas fa-check"></i> Content Explorer for topic ideas</li>
+                            <li><i class="fas fa-check"></i> Rank Tracker for monitoring</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="tool-card">
+                    <div class="tool-image">
+                        <img src="images/s2.png" alt="SEMrush">
+                    </div>
+                    <div class="tool-content">
+                        <h3 class="tool-title">SEMrush</h3>
+                        <p class="tool-description">Comprehensive SEO platform for keyword research, ranking tracking, and site auditing.</p>
+                        <ul class="tool-features">
+                            <li><i class="fas fa-check"></i> Position Tracking</li>
+                            <li><i class="fas fa-check"></i> Site Audit</li>
+                            <li><i class="fas fa-check"></i> On-page SEO Checker</li>
+                            <li><i class="fas fa-check"></i> Backlink Analytics</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="tool-card">
+                    <div class="tool-image">
+                        <img src="images/s3.png" alt="Google Search Console">
+                    </div>
+                    <div class="tool-content">
+                        <h3 class="tool-title">Google Search Console</h3>
+                        <p class="tool-description">Free tool by Google to monitor and maintain site presence in search results.</p>
+                        <ul class="tool-features">
+                            <li><i class="fas fa-check"></i> Performance reports</li>
+                            <li><i class="fas fa-check"></i> Index coverage monitoring</li>
+                            <li><i class="fas fa-check"></i> Core Web Vitals</li>
+                            <li><i class="fas fa-check"></i> Mobile usability</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="tool-form">
+            <h2 class="section-title">SEO Tool Selection Form</h2>
+            <div class="form-container">
+                <form id="seo-tool-form">
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="experience">SEO Experience Level</label>
+                        <select id="experience" name="experience" required>
+                            <option value="">Select your experience level</option>
+                            <option value="beginner">Beginner</option>
+                            <option value="intermediate">Intermediate</option>
+                            <option value="advanced">Advanced</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="interest">Primary SEO Interest</label>
+                        <select id="interest" name="interest" required>
+                            <option value="">Select your interest</option>
+                            <option value="technical">Technical SEO</option>
+                            <option value="content">Content SEO</option>
+                            <option value="local">Local SEO</option>
+                            <option value="ecommerce">E-commerce SEO</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="tools">Preferred Tools (Select all that apply)</label>
+                        <select id="tools" name="tools" multiple size="5">
+                            <option value="ahrefs">Ahrefs</option>
+                            <option value="semrush">SEMrush</option>
+                            <option value="moz">Moz</option>
+                            <option value="screamingfrog">Screaming Frog</option>
+                            <option value="googleconsole">Google Search Console</option>
+                            <option value="googleanalytics">Google Analytics</option>
+                            <option value="surferseo">Surfer SEO</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="goals">Your SEO Goals</label>
+                        <textarea id="goals" name="goals" placeholder="Describe what you hope to achieve with this course..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn">Submit Form</button>
+                </form>
+            </div>
+        </section>
+
+        <section class="section" id="chatgpt">
+            <h2 class="section-title">Using ChatGPT for SEO</h2>
+            <div class="chatgpt-content">
+                <div class="chatgpt-text">
+                    <p>ChatGPT can be an invaluable tool for SEO professionals, helping with content creation, keyword research, and strategy development.</p>
+                    
+                    <h3>How to use ChatGPT for SEO:</h3>
+                    <ul class="steps">
+                        <li><i class="fas fa-lightbulb"></i> <strong>Keyword Research:</strong> Ask ChatGPT for related keywords and long-tail variations</li>
+                        <li><i class="fas fa-font"></i> <strong>Content Ideas:</strong> Generate blog post topics and content outlines</li>
+                        <li><i class="fas fa-list-alt"></i> <strong>Meta Descriptions:</strong> Create compelling meta descriptions for your pages</li>
+                        <li><i class="fas fa-code"></i> <strong>Structured Data:</strong> Get help with JSON-LD structured data markup</li>
+                        <li><i class="fas fa-pencil-alt"></i> <strong>Content Optimization:</strong> Improve existing content for target keywords</li>
+                        <li><i class="fas fa-link"></i> <strong>Link Building:</strong> Generate outreach email templates for link building</li>
+                    </ul>
+                    
+                    <p>Example prompt: "Generate 10 long-tail keyword ideas for a vegan bakery website"</p>
+                </div>
+                <div class="chatgpt-image">
+                    <img src="https://images.unsplash.com/photo-1682686581362-796145f0e123?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80" alt="Using ChatGPT for SEO">
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="videos">
+            <h2 class="section-title">SEO Video Lessons</h2>
+            <p style="text-align: center; margin-bottom: 30px;">Watch these YouTube lessons to enhance your SEO knowledge as part of the Pro Freelancer Courses.</p>
+            
+            <div class="video-gallery">
+                <div class="video-card">
+                    <div class="video-thumbnail">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/hhh0yetJ170?si=aQWXITl01m-0f3qc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                    <div class="video-info">
+                        <h3 class="video-title">Keyword Research Mastery</h3>
+                        <p class="video-duration">Lesson  10:42</p>
+                    </div>
+                </div>
+                
+                <div class="video-card">
+                    <div class="video-thumbnail">
+                      <iframe width="560" height="315" src="https://www.youtube.com/embed/VCDH3jPh_u0?si=LbcKVwbUVi3dRnhm" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                    <div class="video-info">
+                        <h3 class="video-title">On-Page SEO Techniques</h3>
+                        <p class="video-duration">Lesson 9:18</p>
+                    </div>
+                </div>
+                
+                <div class="video-card">
+                    <div class="video-thumbnail">
+                       <iframe width="560" height="315" src="https://www.youtube.com/embed/2lD7xgpxzYA?si=Q-TRqO6flMxsp365" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                    <div class="video-info">
+                        <h3 class="video-title">Technical SEO Fundamentals</h3>
+                        <p class="video-duration">Lesson 11:05</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Pro Freelancer Courses</h3>
+                    <p>Professional SEO training for aspiring freelancers</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-phone"></i> 03065178817</p>
+                    <p><i class="fas fa-user"></i> Course Writer: Usman Haider</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Follow Us</h3>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Pro Freelancer Courses. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Form submission handling
+        document.getElementById('seo-tool-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Form submitted successfully! We will contact you with personalized tool recommendations.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
